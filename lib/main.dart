@@ -10,6 +10,7 @@ class Aplikasiku extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login App',
+       debugShowCheckedModeBanner: false,
       home: HalamanLogin(),
     );
   }
@@ -99,6 +100,8 @@ class HalamanLogin extends StatelessWidget {
   }
 }
 
+
+
 class HalamanDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -117,18 +120,20 @@ class HalamanDashboard extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: ElevatedButton(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   minimumSize: Size(double.infinity, 50),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0), 
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -136,66 +141,80 @@ class HalamanDashboard extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => HalamanKelompok()),
                   );
                 },
-                child: Text(
-                  '1. Data Kelompok',
-                  style: TextStyle(
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'arial',
-                    color: Color(0xFF1E3A8A),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '1. Data Kelompok',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'arial',
+                      color: Color(0xFF1E3A8A),
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+              SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  minimumSize: Size(double.infinity, 50),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0), 
                 ),
-                minimumSize: Size(double.infinity, 50),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HalamanHitung()),
-                );
-              },
-              child: Text(
-                '2. Penjumlahan dan Pengurangan',
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'arial',
-                  color: Color(0xFF1E3A8A),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                minimumSize: Size(double.infinity, 50),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Halamanganjilgenap()),
-                );
-              },
-              child: Text(
-                '3. Penentuan Ganjil atau Genap',
-                style: TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'arial',
-                  color: Color(0xFF1E3A8A),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HalamanHitung()),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '2. Penjumlahan dan Pengurangan',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'arial',
+                      color: Color(0xFF1E3A8A),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  minimumSize: Size(double.infinity, 50),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0), 
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Halamanganjilgenap()),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '3. Penentuan Ganjil atau Genap',
+                    style: TextStyle(
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'arial',
+                      color: Color(0xFF1E3A8A),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       backgroundColor: Color(0xFFE6F7FF),
@@ -203,13 +222,15 @@ class HalamanDashboard extends StatelessWidget {
   }
 }
 
-// Halaman Data Kelompok
+
+
 class HalamanKelompok extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF1E3A8A),
+        iconTheme: IconThemeData(color: Colors.white),
         title: Center(
           child: Text(
             'Data Kelompok',
@@ -227,7 +248,6 @@ class HalamanKelompok extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Kotak 1
             SizedBox(
               height: 150,
               child: Card(
@@ -244,7 +264,7 @@ class HalamanKelompok extends StatelessWidget {
                         radius: 40,
                         backgroundImage: AssetImage('assets/images/image1.jpg'),
                       ),
-                      SizedBox(width: 20), // Jarak antara gambar dan teks
+                      SizedBox(width: 20), 
                       Expanded(
                         child: Text(
                           'Rafly Hersa Pratama (124220011)',
@@ -259,9 +279,9 @@ class HalamanKelompok extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16), // Jarak antar kotak
+            SizedBox(height: 16), 
 
-            // Kotak 2
+            
             SizedBox(
               height: 150,
               child: Card(
@@ -278,7 +298,7 @@ class HalamanKelompok extends StatelessWidget {
                         radius: 40,
                         backgroundImage: AssetImage('assets/images/image2.jpg'),
                       ),
-                      SizedBox(width: 20), // Jarak antara gambar dan teks
+                      SizedBox(width: 20), 
                       Expanded(
                         child: Text(
                           'Raden Muhammad Argo Faiz Miftah (124220015)',
@@ -295,7 +315,7 @@ class HalamanKelompok extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            // Kotak 3
+           
             SizedBox(
               height: 150,
               child: Card(
@@ -312,7 +332,7 @@ class HalamanKelompok extends StatelessWidget {
                         radius: 40,
                         backgroundImage: AssetImage('assets/images/image3.jpg'),
                       ),
-                      SizedBox(width: 20), // Jarak antara gambar dan teks
+                      SizedBox(width: 20),
                       Expanded(
                         child: Text(
                           'Wahyu Widiasmoro (124220126)',
@@ -485,7 +505,10 @@ class _HalamanganjilgenapState extends State<Halamanganjilgenap> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Penentuan Ganjil atau Genap'),
+        title: Text('Penentuan Ganjil atau Genap',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
